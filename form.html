@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>WeShine | Premium Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0f1e;
+      min-height: 100vh;
+      padding: clamp(0.5rem, 3vw, 2rem) clamp(0.75rem, 4vw, 1.5rem);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Moving Lime Criss-Cross Lines - Responsive */
+    .bg-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .line {
+      position: absolute;
+      background: rgba(184, 255, 40, 0.22);
+      box-shadow: 0 0 14px rgba(184, 255, 40, 0.4);
+    }
+
+    .line-diag-1 {
+      width: 200%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b8ff28, #e2ff7a, transparent);
+      transform: rotate(35deg);
+      top: 15%;
+      left: -30%;
+      animation: driftDiagonal 22s linear infinite;
+    }
+
+    .line-diag-2 {
+      width: 180%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c9ff4f, #dcff8a, transparent);
+      transform: rotate(-40deg);
+      bottom: 20%;
+      right: -40%;
+      animation: driftDiagonalReverse 19s linear infinite;
+    }
+
+    .line-diag-3 {
+      width: 160%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(184,255,40,0.2), #b8ff28, #f3ffb0, rgba(184,255,40,0.2));
+      transform: rotate(55deg);
+      top: 60%;
+      left: -20%;
+      animation: driftDiagonal 28s linear infinite;
+    }
+
+    .line-hor {
+      width: 100%;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, #b8ff28, #b8ff28 10px, transparent 10px, transparent 40px);
+      top: 40%;
+      left: 0;
+      animation: slideHor 18s linear infinite;
+    }
+
+    .line-vert {
+      width: 1px;
+      height: 100%;
+      background: repeating-linear-gradient(180deg, #b8ff28, #b8ff28 10px, transparent 10px, transparent 40px);
+      left: 70%;
+      top: 0;
+      animation: slideVert 21s linear infinite;
+    }
+
+    @keyframes driftDiagonal {
+      0% { transform: rotate(35deg) translateX(-20%); }
+      100% { transform: rotate(35deg) translateX(20%); }
+    }
+
+    @keyframes driftDiagonalReverse {
+      0% { transform: rotate(-40deg) translateX(20%); }
+      100% { transform: rotate(-40deg) translateX(-20%); }
+    }
+
+    @keyframes slideHor {
+      0% { transform: translateX(-30%); opacity: 0.3; }
+      50% { transform: translateX(30%); opacity: 0.9; }
+      100% { transform: translateX(-30%); opacity: 0.3; }
+    }
+
+    @keyframes slideVert {
+      0% { transform: translateY(-20%); opacity: 0.4; }
+      100% { transform: translateY(20%); opacity: 0.8; }
+    }
+
+    .glass-container {
+      position: relative;
+      z-index: 10;
+      max-width: min(1000px, 95%);
+      margin: 0 auto;
+      background: rgba(8, 12, 22, 0.45);
+      backdrop-filter: blur(12px);
+      border-radius: clamp(1rem, 5vw, 2.5rem);
+      border: 1px solid rgba(184, 255, 40, 0.4);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    .form-full {
+      width: 100%;
+      padding: clamp(1rem, 4vw, 2rem) clamp(1rem, 5vw, 2.5rem);
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(3px);
+    }
+
+    .premium-header {
+      text-align: center;
+      margin-bottom: clamp(1rem, 4vw, 2rem);
+      padding-bottom: clamp(0.5rem, 2vw, 1rem);
+      border-bottom: 1px solid rgba(184, 255, 40, 0.3);
+      background: transparent;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .back-btn {
+      background: rgba(184, 255, 40, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(184, 255, 40, 0.6);
+      padding: clamp(4px, 2vw, 8px) clamp(12px, 4vw, 20px);
+      border-radius: 40px;
+      color: #e0ffa0;
+      font-weight: 600;
+      font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .back-btn:hover {
+      background: rgba(184, 255, 40, 0.4);
+      border-color: #b8ff28;
+      color: white;
+      transform: translateX(-3px);
+    }
+
+    h1 {
+      font-size: clamp(1.2rem, 6vw, 2.2rem);
+      background: linear-gradient(135deg, #FFFFFF 20%, #d9ff66 85%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h1 i {
+      font-size: clamp(1rem, 5vw, 1.8rem);
+    }
+
+    .form-two-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: clamp(0.8rem, 3vw, 1.2rem) clamp(1rem, 4vw, 1.8rem);
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .input-group label {
+      font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #e0ffa0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    }
+
+    .input-group label i {
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      width: 20px;
+      color: #c6ff4c;
+    }
+
+    input, select, textarea {
+      background: rgba(10, 16, 26, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(184, 255, 40, 0.45);
+      padding: clamp(10px, 2.5vw, 12px) clamp(12px, 3vw, 16px);
+      border-radius: 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      color: #f0f5ff;
+      transition: all 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #fffd9e;
+      box-shadow: 0 0 0 3px rgba(184, 255, 40, 0.35);
+      background: rgba(8, 14, 24, 0.9);
+    }
+
+    button.submit-btn {
+      width: 100%;
+      background: linear-gradient(105deg, #c6ff3e, #95d41a);
+      border: none;
+      padding: clamp(12px, 3vw, 14px);
+      font-weight: 800;
+      font-size: clamp(0.9rem, 3vw, 1.05rem);
+      border-radius: 60px;
+      color: #0a0f1e;
+      margin-top: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    }
+
+    button.submit-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.07);
+      box-shadow: 0 12px 24px rgba(160, 240, 0, 0.3);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.2s ease;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-container {
+      background: #0c1321ee;
+      backdrop-filter: blur(20px);
+      border-radius: clamp(1rem, 5vw, 2rem);
+      width: 95%;
+      max-width: min(680px, 95%);
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 1.5px solid #b8ff58;
+      box-shadow: 0 30px 45px #000000aa;
+      padding: clamp(1rem, 4vw, 1.8rem);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #b8ff5866;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .modal-header h2 {
+      color: #dcff90;
+      font-size: clamp(1.1rem, 4vw, 1.5rem);
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: clamp(1.5rem, 5vw, 1.8rem);
+      cursor: pointer;
+      color: #d1e2ff;
+      padding: 0 8px;
+    }
+
+    .data-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .preview-row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #2f3a52;
+      padding: 8px 0;
+      gap: 8px;
+    }
+
+    .preview-label {
+      width: clamp(100px, 30%, 140px);
+      font-weight: 700;
+      color: #e2ff9e;
+      font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+    }
+
+    .preview-value {
+      flex: 1;
+      color: #eef4ff;
+      word-break: break-word;
+      font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-cancel, .btn-confirm {
+      padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 24px);
+      border-radius: 40px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+    }
+
+    .btn-cancel {
+      background: #2e3b4e;
+      color: #fff;
+    }
+
+    .btn-confirm {
+      background: #c9ff57;
+      color: #0a0f1e;
+    }
+
+    /* Extra Small Devices (Smart Watches, Small Phones) */
+    @media (max-width: 480px) {
+      .form-two-columns {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+      
+      .input-group.full-width {
+        grid-column: span 1;
+      }
+      
+      .premium-header {
+        flex-direction: column;
+      }
+      
+      .back-btn {
+        position: static;
+        order: -1;
+      }
+      
+      .preview-label {
+        width: 100%;
+      }
+      
+      .modal-buttons {
+        flex-direction: column;
+      }
+      
+      .btn-cancel, .btn-confirm {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+
+    /* Tablets and Small Laptops */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .form-two-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      
+      .input-group.full-width {
+        grid-column: span 2;
+      }
+    }
+
+    /* Large Screens (TV, Desktop) */
+    @media (min-width: 1200px) {
+      .glass-container {
+        max-width: 1100px;
+      }
+      
+      .form-full {
+        padding: 2.5rem 3rem;
+      }
+      
+      .form-two-columns {
+        gap: 1.5rem 2rem;
+      }
+    }
+
+    /* Touch Device Optimization */
+    @media (hover: none) and (pointer: coarse) {
+      button, .back-btn, .btn-cancel, .btn-confirm {
+        min-height: 44px;
+      }
+      
+      input, select, textarea {
+        font-size: 16px;
+      }
+    }
+
+    /* Landscape Mode Optimization */
+    @media (orientation: landscape) and (max-height: 500px) {
+      body {
+        padding: 0.5rem;
+      }
+      
+      .glass-container {
+        max-height: 95vh;
+        overflow-y: auto;
+      }
+      
+      .form-full {
+        padding: 1rem;
+      }
+      
+      .modal-container {
+        max-height: 90vh;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(184, 255, 40, 0.1);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(184, 255, 40, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(184, 255, 40, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-lines">
+  <div class="line line-diag-1"></div>
+  <div class="line line-diag-2"></div>
+  <div class="line line-diag-3"></div>
+  <div class="line line-hor"></div>
+  <div class="line line-vert"></div>
+</div>
+
+<div class="glass-container">
+  <div class="form-full">
+    <div class="premium-header">
+      <h1><i class="fas fa-sparkle"></i> WeShine</h1>
+      <button class="back-btn" id="backButton"><i class="fas fa-arrow-left"></i> Back</button>
+    </div>
+
+    <form id="registrationForm">
+      <div class="form-two-columns">
+        <div class="input-group">
+          <label><i class="fas fa-user-astronaut"></i> Full Name</label>
+          <input type="text" id="fullName" placeholder="e.g. Ananya Verma" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-phone-alt"></i> Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="+91 9876543210" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-birthday-cake"></i> Date of Birth</label>
+          <input type="date" id="dob" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-graduation-cap"></i> Qualification</label>
+          <input type="text" id="qualification" placeholder="e.g. B.Sc, MCA" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-calendar-check"></i> Pass Out Year</label>
+          <input type="number" id="passoutYear" placeholder="2024" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-atom"></i> Subject Studied</label>
+          <input type="text" id="subject" placeholder="e.g. Data Science, Physics" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-chart-line"></i> Experience (years)</label>
+          <input type="text" id="experience" placeholder="e.g. 4+ years" required>
+        </div>
+
+        <div class="input-group full-width">
+          <label><i class="fas fa-comment-medical"></i> Feedback / Experience</label>
+          <textarea rows="2" id="feedback" placeholder="Tell us your journey..."></textarea>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-briefcase"></i> Current Work / Role</label>
+          <input type="text" id="currentWork" placeholder="e.g. Product Manager, Designer" required>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-handshake"></i> Recommend WeShine? (Yes/No)</label>
+          <select id="recommend">
+            <option value="Yes">✅ Yes — absolutely</option>
+            <option value="No">❌ No — maybe later</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" id="openModalBtn"><i class="fas fa-eye"></i> Review & Confirm</button>
+    </form>
+  </div>
+</div>
+
+<div id="confirmModal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2><i class="fas fa-clipboard-check"></i> Final Review</h2>
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+    </div>
+    <div id="modalPreviewContent" class="data-preview"></div>
+    <div class="modal-buttons">
+      <button class="btn-cancel" id="cancelModalBtn"><i class="fas fa-undo-alt"></i> Cancel & Edit</button>
+      <button class="btn-confirm" id="confirmSubmitBtn"><i class="fas fa-save"></i> Confirm & Save to Sheet</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ✅ YOUR GOOGLE SHEETS WEB APP URL
+  const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwb_e_mdgNkE7K02d-Ud72NO0kJRO9D6Sz-OLJ1yIS3HjnZwjeF3K0cSiX7jjZ8ZwC9/exec";
+  
+  const modalOverlay = document.getElementById('confirmModal');
+  const modalContentDiv = document.getElementById('modalPreviewContent');
+  const openModalBtn = document.getElementById('openModalBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const cancelModalBtn = document.getElementById('cancelModalBtn');
+  const confirmBtn = document.getElementById('confirmSubmitBtn');
+  const backButton = document.getElementById('backButton');
+
+  // Back button
+  backButton.addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
+  // Validation
+  function validateFormData() {
+    const name = document.getElementById('fullName').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const dob = document.getElementById('dob').value;
+    const qualification = document.getElementById('qualification').value.trim();
+    const passout = document.getElementById('passoutYear').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const experience = document.getElementById('experience').value.trim();
+    const currentWork = document.getElementById('currentWork').value.trim();
+    
+    if (!name) { alert("✨ Please enter your Full Name"); return false; }
+    if (!mobile) { alert("📱 Mobile number is required"); return false; }
+    if (!dob) { alert("🎂 Date of Birth missing"); return false; }
+    if (!qualification) { alert("🎓 Qualification required"); return false; }
+    if (!passout) { alert("📅 Pass out year missing"); return false; }
+    if (!subject) { alert("📚 Subject studied field is mandatory"); return false; }
+    if (!experience) { alert("💼 Experience details required"); return false; }
+    if (!currentWork) { alert("💻 Current work role must be mentioned"); return false; }
+    return true;
+  }
+
+  // Gather form data
+  function gatherFormData() {
+    return {
+      fullName: document.getElementById('fullName').value.trim(),
+      mobile: document.getElementById('mobile').value.trim(),
+      dob: document.getElementById('dob').value,
+      qualification: document.getElementById('qualification').value.trim(),
+      passoutYear: document.getElementById('passoutYear').value.trim(),
+      subject: document.getElementById('subject').value.trim(),
+      experience: document.getElementById('experience').value.trim(),
+      feedback: document.getElementById('feedback').value.trim(),
+      currentWork: document.getElementById('currentWork').value.trim(),
+      recommend: document.getElementById('recommend').value
+    };
+  }
+
+  // Escape HTML
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  // Render modal preview
+  function renderModalPreview(data) {
+    const html = `
+      <div class="preview-row"><div class="preview-label">Full Name</div><div class="preview-value">${escapeHtml(data.fullName) || '—'}</div></div>
+      <div class="preview-row"><div class="preview-label">Mobile</div><div class="preview-value">${escapeHtml(data.mobile)}</div></div>
+      <div class="preview-row"><div class="preview-label">Date of Birth</div><div class="preview-value">${escapeHtml(data.dob)}</div></div>
+      <div class="preview-row"><div class="preview-label">Qualification</div><div class="preview-value">${escapeHtml(data.qualification)}</div></div>
+      <div class="preview-row"><div class="preview-label">Pass Out Year</div><div class="preview-value">${escapeHtml(data.passoutYear)}</div></div>
+      <div class="preview-row"><div class="preview-label">Subject</div><div class="preview-value">${escapeHtml(data.subject)}</div></div>
+      <div class="preview-row"><div class="preview-label">Experience</div><div class="preview-value">${escapeHtml(data.experience)}</div></div>
+      <div class="preview-row"><div class="preview-label">Feedback</div><div class="preview-value">${escapeHtml(data.feedback) || '—'}</div></div>
+      <div class="preview-row"><div class="preview-label">Current Work</div><div class="preview-value">${escapeHtml(data.currentWork)}</div></div>
+      <div class="preview-row"><div class="preview-label">Recommend WeShine</div><div class="preview-value">${escapeHtml(data.recommend)}</div></div>
+    `;
+    modalContentDiv.innerHTML = html;
+  }
+
+  // Open modal
+  openModalBtn.addEventListener('click', function() {
+    if (!validateFormData()) return;
+    const formData = gatherFormData();
+    renderModalPreview(formData);
+    modalOverlay.classList.add('active');
+  });
+
+  // Close modal
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+  }
+
+  closeModalBtn.addEventListener('click', closeModal);
+  cancelModalBtn.addEventListener('click', closeModal);
+
+  // Save to Google Sheet
+  async function saveToGoogleSheet(formDataObj) {
+    const payload = {
+      fullName: formDataObj.fullName,
+      mobile: formDataObj.mobile,
+      dob: formDataObj.dob,
+      qualification: formDataObj.qualification,
+      passoutYear: formDataObj.passoutYear,
+      subject: formDataObj.subject,
+      experience: formDataObj.experience,
+      feedback: formDataObj.feedback,
+      currentWork: formDataObj.currentWork,
+      recommend: formDataObj.recommend
+    };
+    
+    try {
+      const response = await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      
+      console.log("✅ Data sent to Google Sheet:", payload);
+      return true;
+      
+    } catch (err) {
+      console.error("❌ Save error:", err);
+      console.log("📋 Data:", payload);
+      return false;
+    }
+  }
+
+  // Confirm button
+  confirmBtn.addEventListener('click', async function() {
+    const finalData = gatherFormData();
+    if (!finalData.fullName) {
+      closeModal();
+      alert("Something went wrong. Re-open the form.");
+      return;
+    }
+    
+    confirmBtn.disabled = true;
+    confirmBtn.innerText = "Saving...";
+    
+    const success = await saveToGoogleSheet(finalData);
+    
+    confirmBtn.disabled = false;
+    confirmBtn.innerText = "Confirm & Save to Sheet";
+    
+    if (success) {
+      closeModal();
+      document.getElementById('registrationForm').reset();
+      alert("✅ Success! Your data has been saved to Google Sheet!");
+    } else {
+      closeModal();
+      alert("⚠️ Error saving data. Check console for details.\n\nMake sure Web App is deployed with 'Anyone' access.");
+    }
+  });
+</script>
+
+</body>
+</html>
