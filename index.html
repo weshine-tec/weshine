@@ -24,12 +24,15 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0f1e;
+      /* Sky Blue Background */
+      background: #87CEEB;
+      background: linear-gradient(145deg, #7ec8e0 0%, #b0e2f5 100%);
       min-height: 100vh;
-      color: #fff;
+      color: #0a1a2a;
       overflow-x: hidden;
     }
 
+    /* Navi Blue Thin Lines Background - Adjusted to be thinner and more subtle */
     .bg-lines {
       position: fixed;
       top: 0;
@@ -43,56 +46,65 @@
 
     .line {
       position: absolute;
-      background: rgba(184, 255, 40, 0.15);
-      box-shadow: 0 0 14px rgba(184, 255, 40, 0.3);
+      /* Navy blue with lower opacity and thinner dimensions */
+      background: rgba(0, 70, 120, 0.2);
+      box-shadow: none;
     }
 
+    /* Diagonal lines - thinner (1px instead of 2-3px) */
     .line-diag-1 {
       width: 200%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #b8ff28, #e2ff7a, transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1e4a76, #2c6b9e, transparent);
       transform: rotate(35deg);
       top: 15%;
       left: -30%;
       animation: driftDiagonal 22s linear infinite;
+      opacity: 0.55;
     }
 
     .line-diag-2 {
       width: 180%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #c9ff4f, #dcff8a, transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1e4a76, #2c6b9e, transparent);
       transform: rotate(-40deg);
       bottom: 20%;
       right: -40%;
       animation: driftDiagonalReverse 19s linear infinite;
+      opacity: 0.5;
     }
 
     .line-diag-3 {
       width: 160%;
-      height: 3px;
-      background: linear-gradient(90deg, rgba(184,255,40,0.2), #b8ff28, #f3ffb0, rgba(184,255,40,0.2));
+      height: 1px;
+      background: linear-gradient(90deg, rgba(30,74,118,0.2), #1e4a76, #3b82b6, rgba(30,74,118,0.2));
       transform: rotate(55deg);
       top: 60%;
       left: -20%;
       animation: driftDiagonal 28s linear infinite;
+      opacity: 0.45;
     }
 
+    /* Horizontal line - thin navy blue */
     .line-hor {
       width: 100%;
       height: 1px;
-      background: repeating-linear-gradient(90deg, #b8ff28, #b8ff28 10px, transparent 10px, transparent 40px);
+      background: repeating-linear-gradient(90deg, #1e4a76, #1e4a76 12px, transparent 12px, transparent 45px);
       top: 40%;
       left: 0;
       animation: slideHor 18s linear infinite;
+      opacity: 0.5;
     }
 
+    /* Vertical line - thin navy blue */
     .line-vert {
       width: 1px;
       height: 100%;
-      background: repeating-linear-gradient(180deg, #b8ff28, #b8ff28 10px, transparent 10px, transparent 40px);
+      background: repeating-linear-gradient(180deg, #1e4a76, #1e4a76 12px, transparent 12px, transparent 45px);
       left: 70%;
       top: 0;
       animation: slideVert 21s linear infinite;
+      opacity: 0.5;
     }
 
     @keyframes driftDiagonal {
@@ -107,13 +119,13 @@
 
     @keyframes slideHor {
       0% { transform: translateX(-30%); opacity: 0.3; }
-      50% { transform: translateX(30%); opacity: 0.9; }
+      50% { transform: translateX(30%); opacity: 0.65; }
       100% { transform: translateX(-30%); opacity: 0.3; }
     }
 
     @keyframes slideVert {
-      0% { transform: translateY(-20%); opacity: 0.4; }
-      100% { transform: translateY(20%); opacity: 0.8; }
+      0% { transform: translateY(-20%); opacity: 0.3; }
+      100% { transform: translateY(20%); opacity: 0.65; }
     }
 
     .main-container {
@@ -124,6 +136,7 @@
       padding: 2rem clamp(1rem, 5vw, 4rem);
     }
 
+    /* Navbar styling - adjusted for sky blue background */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -131,7 +144,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       padding: 1rem 0 2rem 0;
-      border-bottom: 1px solid rgba(184, 255, 40, 0.3);
+      border-bottom: 1px solid rgba(30, 74, 118, 0.4);
       margin-bottom: 3rem;
     }
 
@@ -143,19 +156,20 @@
 
     .logo i {
       font-size: clamp(1.5rem, 5vw, 2rem);
-      color: #b8ff28;
+      color: #0f3b5c;
     }
 
     .logo h1 {
       font-size: clamp(1.2rem, 4vw, 1.6rem);
-      background: linear-gradient(135deg, #FFFFFF, #b8ff28);
+      background: linear-gradient(135deg, #0c2b44, #1e5a7a);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
+    /* Connect button with deeper tech feel */
     .connect-btn {
-      background: linear-gradient(105deg, #b8ff28, #95d41a);
+      background: linear-gradient(105deg, #0f4c71, #0a3752);
       border: none;
       padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px);
       border-radius: 50px;
@@ -166,16 +180,19 @@
       align-items: center;
       gap: 10px;
       transition: all 0.3s ease;
-      color: #0a0f1e;
+      color: #ffffff;
       text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .connect-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(184, 255, 40, 0.3);
+      box-shadow: 0 10px 25px rgba(15, 76, 113, 0.4);
       gap: 15px;
+      background: linear-gradient(105deg, #125f89, #0c405e);
     }
 
+    /* Hero section adjustments for readability on sky blue */
     .hero {
       text-align: center;
       padding: clamp(2rem, 8vw, 5rem) 0;
@@ -184,7 +201,7 @@
     .hero h2 {
       font-size: clamp(1.8rem, 8vw, 3.5rem);
       font-weight: 700;
-      background: linear-gradient(135deg, #FFFFFF, #b8ff28, #e2ff7a);
+      background: linear-gradient(135deg, #0f2c40, #1f5e7e, #2f7fa3);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -193,17 +210,19 @@
 
     .hero p {
       font-size: clamp(1rem, 3vw, 1.2rem);
-      color: #b8c7e7;
+      color: #0a2e44;
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
+      font-weight: 500;
     }
 
     .highlight {
-      color: #b8ff28;
-      font-weight: 600;
+      color: #0a4c6e;
+      font-weight: 800;
     }
 
+    /* Stats cards with darker borders for contrast */
     .stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -213,28 +232,32 @@
     }
 
     .stat-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(184, 255, 40, 0.2);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(15, 76, 113, 0.4);
       border-radius: 20px;
       padding: 1.5rem;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      color: #0a2e44;
     }
 
     .stat-card:hover {
-      border-color: #b8ff28;
+      border-color: #0f4c71;
       transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .stat-number {
       font-size: clamp(1.8rem, 5vw, 2.5rem);
       font-weight: 800;
-      color: #b8ff28;
+      color: #0f4c71;
     }
 
     .stat-label {
-      color: #b8c7e7;
+      color: #1b4f6e;
       margin-top: 0.5rem;
+      font-weight: 500;
     }
 
     .section {
@@ -249,6 +272,7 @@
       position: relative;
       display: inline-block;
       width: 100%;
+      color: #0a2e44;
     }
 
     .section-title::after {
@@ -259,9 +283,10 @@
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, #b8ff28, transparent);
+      background: linear-gradient(90deg, #0f4c71, #7ab3c8);
     }
 
+    /* Cards with better contrast on sky blue */
     .tech-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -270,33 +295,36 @@
     }
 
     .tech-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(184, 255, 40, 0.2);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(15, 76, 113, 0.3);
       border-radius: 20px;
       padding: 2rem;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      color: #0f2c3f;
     }
 
     .tech-card:hover {
-      border-color: #b8ff28;
+      border-color: #0f4c71;
       transform: translateY(-5px);
-      background: rgba(184, 255, 40, 0.05);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .tech-icon {
       font-size: 2.5rem;
-      color: #b8ff28;
+      color: #0f4c71;
       margin-bottom: 1rem;
     }
 
     .tech-card h3 {
       font-size: 1.3rem;
       margin-bottom: 1rem;
+      color: #0a2e44;
     }
 
     .tech-card p {
-      color: #b8c7e7;
+      color: #1b4f6e;
       line-height: 1.6;
     }
 
@@ -308,26 +336,28 @@
     }
 
     .info-card {
-      background: linear-gradient(135deg, rgba(184, 255, 40, 0.05), rgba(0, 0, 0, 0.3));
-      border-left: 3px solid #b8ff28;
+      background: rgba(255, 255, 255, 0.8);
+      border-left: 3px solid #0f4c71;
       border-radius: 15px;
       padding: 2rem;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      color: #0a2e44;
     }
 
     .info-card:hover {
       transform: translateX(5px);
-      background: rgba(184, 255, 40, 0.08);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .info-card h3 {
-      color: #b8ff28;
+      color: #0f4c71;
       margin-bottom: 1rem;
       font-size: 1.4rem;
     }
 
     .info-card p {
-      color: #b8c7e7;
+      color: #1e506b;
       line-height: 1.7;
       margin-bottom: 1rem;
     }
@@ -338,7 +368,7 @@
     }
 
     .info-card li {
-      color: #b8c7e7;
+      color: #1e506b;
       padding: 8px 0;
       display: flex;
       align-items: center;
@@ -346,7 +376,7 @@
     }
 
     .info-card li i {
-      color: #b8ff28;
+      color: #0f4c71;
       font-size: 0.8rem;
     }
 
@@ -360,19 +390,21 @@
     .importance-card {
       text-align: center;
       padding: 2rem;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.75);
       border-radius: 20px;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      color: #0a2e44;
     }
 
     .importance-card:hover {
-      background: rgba(184, 255, 40, 0.05);
+      background: rgba(255, 255, 255, 0.92);
       transform: translateY(-5px);
     }
 
     .importance-card i {
       font-size: 2.5rem;
-      color: #b8ff28;
+      color: #0f4c71;
       margin-bottom: 1rem;
     }
 
@@ -382,7 +414,7 @@
     }
 
     .importance-card p {
-      color: #b8c7e7;
+      color: #1b4f6e;
       font-size: 0.9rem;
     }
 
@@ -394,20 +426,21 @@
 
     .timeline-item {
       padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.78);
       border-radius: 15px;
       margin-bottom: 1.5rem;
-      border-left: 3px solid #b8ff28;
+      border-left: 3px solid #0f4c71;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .timeline-item:hover {
       transform: translateX(5px);
-      background: rgba(184, 255, 40, 0.05);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .timeline-item h4 {
-      color: #b8ff28;
+      color: #0f4c71;
       margin-bottom: 0.5rem;
     }
 
@@ -419,22 +452,24 @@
     }
 
     .company-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(184, 255, 40, 0.15);
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(15, 76, 113, 0.3);
       border-radius: 15px;
       padding: 1.5rem;
       text-align: center;
       transition: all 0.3s ease;
+      color: #0a2e44;
     }
 
     .company-card:hover {
-      border-color: #b8ff28;
+      border-color: #0f4c71;
       transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .company-card i {
       font-size: 2rem;
-      color: #b8ff28;
+      color: #0f4c71;
       margin-bottom: 0.5rem;
     }
 
@@ -443,21 +478,24 @@
     }
 
     .vision-section {
-      background: linear-gradient(135deg, rgba(184, 255, 40, 0.05), rgba(0, 0, 0, 0.5));
+      background: linear-gradient(135deg, rgba(255,255,240,0.8), rgba(200,228,240,0.85));
       border-radius: 30px;
       padding: clamp(2rem, 5vw, 4rem);
       margin: 4rem 0;
       text-align: center;
-      border: 1px solid rgba(184, 255, 40, 0.3);
+      border: 1px solid rgba(15, 76, 113, 0.5);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      color: #0a2e44;
     }
 
     .vision-section h3 {
       font-size: clamp(1.3rem, 4vw, 1.8rem);
       margin-bottom: 1rem;
+      color: #0c3e5c;
     }
 
     .vision-section p {
-      color: #b8c7e7;
+      color: #1b4f6e;
       max-width: 800px;
       margin: 0 auto;
       line-height: 1.8;
@@ -466,18 +504,24 @@
     .cta-section {
       text-align: center;
       padding: 4rem 2rem;
-      background: rgba(184, 255, 40, 0.05);
+      background: rgba(255, 255, 245, 0.7);
       border-radius: 30px;
       margin: 3rem 0;
+      backdrop-filter: blur(2px);
     }
 
     .cta-section h3 {
       font-size: clamp(1.3rem, 4vw, 1.8rem);
       margin-bottom: 1rem;
+      color: #0a2e44;
+    }
+
+    .cta-section p {
+      color: #1b4f6e;
     }
 
     .cta-btn {
-      background: linear-gradient(105deg, #b8ff28, #95d41a);
+      background: linear-gradient(105deg, #0f4c71, #0a3752);
       border: none;
       padding: 14px 40px;
       border-radius: 50px;
@@ -488,23 +532,25 @@
       align-items: center;
       gap: 10px;
       transition: all 0.3s ease;
-      color: #0a0f1e;
+      color: white;
       margin-top: 1.5rem;
       text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .cta-btn:hover {
       transform: translateY(-2px);
       gap: 15px;
-      box-shadow: 0 10px 30px rgba(184, 255, 40, 0.3);
+      box-shadow: 0 10px 30px rgba(15, 76, 113, 0.4);
+      background: linear-gradient(105deg, #125f89, #0c405e);
     }
 
     .footer {
       margin-top: 4rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(184, 255, 40, 0.2);
+      border-top: 1px solid rgba(15, 76, 113, 0.4);
       text-align: center;
-      color: #6c7a8e;
+      color: #1f5577;
     }
 
     .seo-hidden {
@@ -907,7 +953,7 @@
   </div>
 
   <div class="vision-section">
-    <i class="fas fa-quote-left" style="font-size: 2rem; color: #b8ff28; margin-bottom: 1rem; display: inline-block;"></i>
+    <i class="fas fa-quote-left" style="font-size: 2rem; color: #0f4c71; margin-bottom: 1rem; display: inline-block;"></i>
     <h3>Together We Rise to New Heights</h3>
     <p>At WeShine Institute, we believe that technology has the power to transform lives. Our mission is to nurture the next generation of tech leaders through industry-aligned curriculum, hands-on projects, and mentorship from industry experts. We don't just teach coding — we build problem solvers, innovators, and changemakers who will shape tomorrow's digital landscape. Join our family of passionate learners and embark on a journey where your potential meets opportunity.</p>
   </div>
